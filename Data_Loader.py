@@ -1,3 +1,11 @@
+import cv2
+import os 
+import shutil
+from sklearn.model_selection import train_test_split
+import cv2
+import numpy as np
+
+
 class Data_Loader:
   '''
     Class containing methods to load datsets.  
@@ -48,10 +56,11 @@ class Data_Loader:
 
     try:
       os.mkdir(final_data_folder)    
+      print("Creating processedData Folder")
     except:
       pass
 
-    for image in tqdm(list(os.listdir(classPath))):
+    for image in list(os.listdir(classPath)):
 
         if (image.find("Images") == -1):
           pass
@@ -103,11 +112,10 @@ class Data_Loader:
     image_path = os.path.join(self.final_data_folder,image_path)
 
     # Read Image
-    img = cv2.imread(image_path) 
+    img = plt.imread(image_path) 
 
     # Resize Image
-    img = cv2.resize(img, img_resize_shape,  
-             interpolation = cv2.INTER_NEAREST)
+    img = cv2.resize(image,img_resize_shape)
     
     # return resized image
     return img

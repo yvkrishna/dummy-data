@@ -1,3 +1,8 @@
+import cv2
+import os 
+import numpy as np
+import matplotlib.pyplot as plt
+
 class Filters:
   '''
     Class containing methods to apply filters to images in the data folder  
@@ -21,10 +26,11 @@ class Filters:
     '''
     try:
       os.mkdir(classPath+"/MedianImages")    
+      print("Creating MedianImages Folder")
     except:
       pass
 
-    for image in tqdm(list(os.listdir(classPath))):
+    for image in list(os.listdir(classPath)):
       # Read image
       img = cv2.imread(classPath+"/"+image)
 
@@ -44,10 +50,11 @@ class Filters:
     
     try:
       os.mkdir(classPath+"/LaplacianImages")    
+      print("Creating LaplacianImages Folder")
     except:
       pass
 
-    for image in tqdm(list(os.listdir(classPath))):
+    for image in list(os.listdir(classPath)):
       # Read image
       img = cv2.imread(classPath+"/"+image)
 
@@ -67,10 +74,11 @@ class Filters:
 
     try:
       os.mkdir(classPath+"/SobelxImages")    
+      print("Creating SobelxImages Folder")
     except:
       pass
 
-    for image in tqdm(list(os.listdir(classPath))):
+    for image in list(os.listdir(classPath)):
       # Read image
       img = cv2.imread(classPath+"/"+image)
 
@@ -89,10 +97,11 @@ class Filters:
     '''
     try:
       os.mkdir(classPath+"/SobelyImages")    
+      print("Creating SobelyImages Folder")
     except:
       pass
 
-    for image in tqdm(list(os.listdir(classPath))):
+    for image in list(os.listdir(classPath)):
       # Read image
       img = cv2.imread(classPath+"/"+image)
 
@@ -113,10 +122,11 @@ class Filters:
 
     try:
       os.mkdir(classPath+"/GaussianImages")    
+      print("Creating GaussianImages Folder")
     except:
       pass
 
-    for image in tqdm(list(os.listdir(classPath))):
+    for image in list(os.listdir(classPath)):
       # Read image
       img = cv2.imread(classPath+"/"+image)
 
