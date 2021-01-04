@@ -1,3 +1,5 @@
+from Main import Main
+
 m1 = Main('dummy-data','rice_leaf_diseases')
 
 filters = ["median","laplacian","sobelx","sobely","gaussian"]
