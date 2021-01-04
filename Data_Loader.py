@@ -115,7 +115,7 @@ class Data_Loader:
     img = plt.imread(image_path) 
 
     # Resize Image
-    img = cv2.resize(image,img_resize_shape)
+    img = cv2.resize(img,img_resize_shape)
     
     # return resized image
     return img
