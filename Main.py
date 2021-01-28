@@ -26,8 +26,16 @@ class Main(Data_Loader,Filters):
     self.data_dir = data_dir
     super().__init__(dataset_dir,data_dir)
     self.classes = self.getClasses()
-    self.num_classes =  len(self.classes)
 
+    try:
+      self.classes.remove('.ipynb_checkpoints') 
+    except:
+      pass
+
+    self.num_classes =  len(self.classes)
+    
+    print(self.classes,self.num_classes)
+    
 
   def applyFilters(self,filters):
     ''' 
