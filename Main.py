@@ -34,8 +34,6 @@ class Main(Data_Loader,Filters):
 
     self.num_classes =  len(self.classes)
     
-    print(self.classes,self.num_classes)
-    
 
   def applyFilters(self,filters):
     ''' 
