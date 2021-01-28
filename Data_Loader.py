@@ -152,6 +152,7 @@ class Data_Loader:
 
 
     # Creating Numpy Dataset
+    print(img_resize_shape)
     ( Height, Width, channels ) = img_resize_shape
     img_height_width = (Height, Width)
     
