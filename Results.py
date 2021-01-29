@@ -9,8 +9,17 @@ except:
   # sys.exit("Unable to find module reportlab. \nPlease install by pip install reportlab")
   raise SystemExit("Unable to find module reportlab. \nPlease install using pip install reportlab")
 
-import pandas as pd
-import seaborn as sn
+try:
+    import pandas as pd
+except:
+    raise SystemExit("Unable to find module pandas.")
+
+try:
+    import seaborn as sn
+except:
+    raise SystemExit("Unable to find module seaborn.") 
+
+import matplotlib.pyplot as plt
 
 class Results:
   '''
