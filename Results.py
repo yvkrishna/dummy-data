@@ -26,6 +26,14 @@ class Results:
     Class containing various methods to analyze model
   '''
 
+  def results_initialize(self, ResultsFolderPath):
+    '''
+      Initializes various attributes regarding to the object.
+      Args : 
+        ResultsFolderPath: (string) path for creating results folder
+    '''
+    self.res_path = ResultsFolderPath
+
   def get_training_curve_for_tensorflow_model(self,model_history,EPOCHS):
     '''
       returns training curve for tensorflow model

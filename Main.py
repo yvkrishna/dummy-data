@@ -142,6 +142,7 @@ class Main(Data_Loader,Filters,Results):
         predictions: (list) list containing predictions 
     '''
     res_path = os.path.join(self.dataset_dir)
+    self.results_initialize(res_path)
     try:
       os.mkdir(res_path+"/Results") 
     except:
@@ -156,6 +157,7 @@ class Main(Data_Loader,Filters,Results):
         EPOCHS : (int) Number of epochs
     '''
     res_path = os.path.join(self.dataset_dir ,self.data_dir)
+    self.results_initialize(res_path)
     try:
       os.mkdir(res_path+"/Results") 
     except:
