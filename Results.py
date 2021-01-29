@@ -90,7 +90,7 @@ class Results:
     df = pd.DataFrame(data, columns=['y_Actual','y_Predicted'])
     c_m = pd.crosstab(df['y_Actual'], df['y_Predicted'], rownames=['Actual'], colnames=['Predicted'])
 
-    sn.heatmap(confusion_matrix, annot=True, annot_kws={"size": 16})
+    sn.heatmap(c_m, annot=True, annot_kws={"size": 16})
     plt.savefig(self.res_path+'/confussion_matrix.png')
 
 
