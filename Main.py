@@ -2,8 +2,9 @@ import os
 import sys ,time
 from Data_Loader import Data_Loader
 from Filters import Filters
+from Results import Results
 
-class Main(Data_Loader,Filters):
+class Main(Data_Loader,Filters,Results):
   '''
     This class connects the work flow. It calls various methods from 
     the inherited classes whenever required and completes the workflow.
@@ -68,6 +69,9 @@ class Main(Data_Loader,Filters):
     for folder in self.classes:
       for filter in filters:
         path = os.path.join(self.dataset_dir ,self.data_dir, folder)
+
+        time.sleep(0.1)
+        self.update_progress( progress[progress_i]/100.0, f"Filtered all images in {folder}" )
         
         if filter == "median":
           self.applyMedian(path)
@@ -84,8 +88,6 @@ class Main(Data_Loader,Filters):
         elif filter == "gaussian":
           self.applygaussian(path)
       
-        time.sleep(0.1)
-        self.update_progress( progress[progress_i]/100.0, f"Filtered all images in {folder}" )
         progress_i += 1
 
       status1 = f"Applied all filters to {folder} ...\r\n"
@@ -123,3 +125,35 @@ class Main(Data_Loader,Filters):
     self.update_progress( 100/100.0,"Created Datasets" ) 
 
     return self.dataset
+
+  def generate_result_pdf(self):
+    ''' 
+      Generates pdf file 
+    '''
+    res_path = os.path.join(self.dataset_dir ,self.data_dir)
+    self.results_initialize(res_path)
+
+    self.generate_report()
+
+  def generate_confussion_matrix(self,ground_truths,predictions):
+    ''' 
+      Generates confussion martix 
+      Args:
+        ground_truths: (list) list containing ground truths
+        predictions: (list) list containing predictions 
+    '''
+    res_path = os.path.join(self.dataset_dir ,self.data_dir)
+    self.results_initialize(res_path)
+
+    self.get_confussion_matrix(self,ground_truths,predictions)
+
+  def generate_learning_curve_for_tensorflow(self,model_history,EPOCHS):
+    ''' 
+      Generates learning curve 
+      Args:
+        model_history: Contains details regarding model training
+        EPOCHS : (int) Number of epochs
+    '''
+    res_path = os.path.join(self.dataset_dir ,self.data_dir)
+    self.results_initialize(res_path)
+    self.get_learning_curve_for_tensorflow_model(self,model_history,EPOCHS)

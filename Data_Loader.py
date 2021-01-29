@@ -176,4 +176,4 @@ class Data_Loader:
       val_labels[i] = np.asarray(output_label_val[i])
       i += 1
 
-      return (train_images,train_labels,val_images,val_labels)
+    return (train_images,train_labels,val_images,val_labels)
