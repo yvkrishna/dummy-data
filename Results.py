@@ -113,23 +113,21 @@ class Results:
 
     try:
       TRAINING_CURVE = self.res_path+"/Results/learning_curve.png"
+      training_plot = Image(TRAINING_CURVE, 6*inch, 6*inch)
     except:
       raise SystemExit("Unable to find learning_curve.png")
 
     try:
       CONFUSSION_MATRIX = self.res_path+'/Results/confussion_matrix.png'
+      confussion_matrix = Image(CONFUSSION_MATRIX, 6*inch, 6*inch)
     except:
       raise SystemExit("Unable to find confussion_matrix.png")
 
     # try:
     #   ROC_CURVE = self.res_path+"/roc_curve.png"
+    #   roc_curve = Image(ROC_CURVE, 6*inch, 6*inch)
     # except:
     #   raise SystemExit("Unable to find roc_curve.png")
-
-
-    training_plot = Image(TRAINING_CURVE, 6*inch, 6*inch)
-    confussion_matrix = Image(TRAINING_CURVE, 6*inch, 6*inch)
-    # roc_curve = Image(TRAINING_CURVE, 6*inch, 6*inch)
 
     # Heading of pdf
     styles=getSampleStyleSheet()
@@ -147,15 +145,21 @@ class Results:
     except:
       pass
 
-    try:
-      # Confussion Matrix
-      styles.add(ParagraphStyle(name='Justify', alignment=TA_CENTER))
-      conf_mat = '<font size="14">Confussion Matrix</font>' % HEADDING
-      Story.append(Paragraph(conf_mat,styles["Heading1"]))
-      Story.append(confussion_matrix)
-      Story.append(Spacer(1, 12))
-    except:
-      pass
+    # try:
+    #   # Confussion Matrix
+    #   styles.add(ParagraphStyle(name='Justify', alignment=TA_CENTER))
+    #   conf_mat = '<font size="14">Confussion Matrix</font>' % HEADDING
+    #   Story.append(Paragraph(conf_mat,styles["Heading1"]))
+    #   Story.append(confussion_matrix)
+    #   Story.append(Spacer(1, 12))
+    # except:
+    #   pass
+
+    # styles.add(ParagraphStyle(name='Justify', alignment=TA_CENTER))
+    # conf_mat = '<font size="14">Confussion Matrix</font>' % HEADDING
+    # Story.append(Paragraph(conf_mat,styles["Heading1"]))
+    # Story.append(confussion_matrix)
+    # Story.append(Spacer(1, 12))
 
     # try:
     #   # ROC Curves
