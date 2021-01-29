@@ -34,7 +34,7 @@ class Results:
     '''
     self.res_path = ResultsFolderPath
     try:
-      os.mkdir(ResultsFolderPath)    
+      os.mkdir(ResultsFolderPath+"/Results")    
     except:
       pass
 
@@ -136,13 +136,13 @@ class Results:
     # roc_curve = Image(TRAINING_CURVE, 6*inch, 6*inch)
 
     # Heading of pdf
+    styles=getSampleStyleSheet()
     styles.add(ParagraphStyle(name='Justify', alignment=TA_CENTER))
     headding = '<font size="14">%s</font>' % HEADDING
     Story.append(Paragraph(headding,styles["Heading1"]))
 
     try:
       # Learning curve
-      styles=getSampleStyleSheet()
       styles.add(ParagraphStyle(name='Justify', alignment=TA_CENTER))
       acc_loss = '<font size="14">Accuracy And Loss Plots</font>'
       Story.append(Paragraph(headding,styles["Heading1"]))
@@ -153,7 +153,6 @@ class Results:
 
     try:
       # Confussion Matrix
-      styles=getSampleStyleSheet()
       styles.add(ParagraphStyle(name='Justify', alignment=TA_CENTER))
       conf_mat = '<font size="14">Confussion Matrix</font>' % HEADDING
       Story.append(Paragraph(conf_mat,styles["Heading1"]))
@@ -164,7 +163,6 @@ class Results:
 
     # try:
     #   # ROC Curves
-    #   styles=getSampleStyleSheet()
     #   styles.add(ParagraphStyle(name='Justify', alignment=TA_CENTER))
     #   roc = '<font size="14">ROC Curves</font>' % HEADDING
     #   Story.append(Paragraph(roc,styles["Heading1"]))

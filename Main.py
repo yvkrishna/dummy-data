@@ -130,7 +130,7 @@ class Main(Data_Loader,Filters,Results):
     ''' 
       Generates pdf file 
     '''
-    res_path = os.path.join(self.dataset_dir ,self.data_dir)
+    res_path = os.path.join(self.dataset_dir)
     self.results_initialize(res_path)
 
     self.generate_report()
@@ -142,7 +142,7 @@ class Main(Data_Loader,Filters,Results):
         ground_truths: (list) list containing ground truths
         predictions: (list) list containing predictions 
     '''
-    res_path = os.path.join(self.dataset_dir ,self.data_dir)
+    res_path = os.path.join(self.dataset_dir)
     self.results_initialize(res_path)
 
     self.get_confussion_matrix(ground_truths,predictions)
