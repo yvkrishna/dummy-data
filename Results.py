@@ -119,13 +119,13 @@ class Results:
 
     try:
       CONFUSSION_MATRIX = self.res_path+'/Results/confussion_matrix.png'
-      confussion_matrix = Image(CONFUSSION_MATRIX, 6*inch, 6*inch)
+      confussion_matrix = Image(CONFUSSION_MATRIX, 5*inch, 5*inch)
     except:
       raise SystemExit("Unable to find confussion_matrix.png")
 
     # try:
     #   ROC_CURVE = self.res_path+"/roc_curve.png"
-    #   roc_curve = Image(ROC_CURVE, 6*inch, 6*inch)
+    #   roc_curve = Image(ROC_CURVE, 5*inch, 5*inch)
     # except:
     #   raise SystemExit("Unable to find roc_curve.png")
 
@@ -137,7 +137,6 @@ class Results:
 
     try:
       # Learning curve
-      styles.add(ParagraphStyle(name='Justify', alignment=TA_CENTER))
       acc_loss = '<font size="14">Accuracy And Loss Plots</font>'
       Story.append(Paragraph(headding,styles["Heading1"]))
       Story.append(training_plot)
@@ -154,15 +153,9 @@ class Results:
     except:
       pass
 
-    conf_mat = '<font size="14">Confussion Matrix</font>' 
-    Story.append(Paragraph(conf_mat,styles["Heading1"]))
-    Story.append(confussion_matrix)
-    Story.append(Spacer(1, 12))
-
     # try:
     #   # ROC Curves
-    #   styles.add(ParagraphStyle(name='Justify', alignment=TA_CENTER))
-    #   roc = '<font size="14">ROC Curves</font>' % HEADDING
+    #   roc = '<font size="14">ROC Curves</font>'
     #   Story.append(Paragraph(roc,styles["Heading1"]))
     #   Story.append(roc_curve)
     #   Story.append(Spacer(1, 12))
