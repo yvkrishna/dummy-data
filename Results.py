@@ -147,7 +147,6 @@ class Results:
 
     try:
       # Confussion Matrix
-      styles.add(ParagraphStyle(name='Justify', alignment=TA_CENTER))
       conf_mat = '<font size="14">Confussion Matrix</font>' % HEADDING
       Story.append(Paragraph(conf_mat,styles["Heading1"]))
       Story.append(confussion_matrix)
@@ -155,7 +154,6 @@ class Results:
     except:
       pass
 
-    styles.add(ParagraphStyle(name='Justify', alignment=TA_CENTER))
     conf_mat = '<font size="14">Confussion Matrix</font>' % HEADDING
     Story.append(Paragraph(conf_mat,styles["Heading1"]))
     Story.append(confussion_matrix)

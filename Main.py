@@ -50,7 +50,7 @@ class Main(Data_Loader,Filters,Results):
         status = subStatus +" ...\r\n"
 
     block = int(round(barLength*progress))
-    text = "\rPercent: [{0}] {1}% {2}".format( "#"*block + "-"*(barLength-block), progress*100, status)
+    text = "\rFlow2Ml: [{0}] {1}% {2}".format( "#"*block + "-"*(barLength-block), progress*100, status)
     sys.stdout.write(text)
     sys.stdout.flush()
     
