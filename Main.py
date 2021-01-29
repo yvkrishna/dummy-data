@@ -131,7 +131,6 @@ class Main(Data_Loader,Filters,Results):
       Generates pdf file 
     '''
     res_path = os.path.join(self.dataset_dir)
-    self.results_initialize(res_path)
 
     self.generate_report()
 
@@ -143,8 +142,10 @@ class Main(Data_Loader,Filters,Results):
         predictions: (list) list containing predictions 
     '''
     res_path = os.path.join(self.dataset_dir)
-    self.results_initialize(res_path)
-
+    try:
+      os.mkdir(res_path+"/Results") 
+    except:
+      pass
     self.get_confussion_matrix(ground_truths,predictions)
 
   def generate_learning_curve_for_tensorflow(self,model_history,EPOCHS):
@@ -155,5 +156,8 @@ class Main(Data_Loader,Filters,Results):
         EPOCHS : (int) Number of epochs
     '''
     res_path = os.path.join(self.dataset_dir ,self.data_dir)
-    self.results_initialize(res_path)
+    try:
+      os.mkdir(res_path+"/Results") 
+    except:
+      pass
     self.get_learning_curve_for_tensorflow_model(model_history,EPOCHS)

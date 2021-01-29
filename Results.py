@@ -26,18 +26,6 @@ class Results:
     Class containing various methods to analyze model
   '''
 
-  def results_initialize(self, ResultsFolderPath):
-    '''
-      Initializes various attributes regarding to the object.
-      Args : 
-        ResultsFolderPath: (string) path for creating results folder
-    '''
-    self.res_path = ResultsFolderPath
-    try:
-      os.mkdir(ResultsFolderPath+"/Results")    
-    except:
-      pass
-
   def get_training_curve_for_tensorflow_model(self,model_history,EPOCHS):
     '''
       returns training curve for tensorflow model
@@ -88,7 +76,7 @@ class Results:
     plt.xticks(fontsize=20)
     plt.yticks(fontsize=20)
 
-    plt.savefig(self.res_path+'/learning_curve.png')
+    plt.savefig(self.res_path+'/Results/learning_curve.png')
 
   def get_confussion_matrix(self,ground_truths,predictions):
     '''
@@ -100,7 +88,7 @@ class Results:
     c_m = pd.crosstab(df['y_Actual'], df['y_Predicted'], rownames=['Actual'], colnames=['Predicted'])
 
     sn.heatmap(c_m, annot=True, annot_kws={"size": 16})
-    plt.savefig(self.res_path+'/confussion_matrix.png')
+    plt.savefig(self.res_path+'/Results/confussion_matrix.png')
 
 
   def generate_report(self):
@@ -108,7 +96,7 @@ class Results:
       Generates report of the model
     '''
     # Creates a Report.pdf file
-    doc = SimpleDocTemplate(self.res_path+"/Report.pdf",pagesize=letter,
+    doc = SimpleDocTemplate(self.res_path+"/Results/Report.pdf",pagesize=letter,
                         rightMargin=72,leftMargin=72,
                         topMargin=72,bottomMargin=18)
     
@@ -116,12 +104,12 @@ class Results:
     HEADDING = "My Model"
 
     try:
-      TRAINING_CURVE = self.res_path+"/learning_curve.png"
+      TRAINING_CURVE = self.res_path+"/Results/learning_curve.png"
     except:
       raise SystemExit("Unable to find learning_curve.png")
 
     try:
-      CONFUSSION_MATRIX = self.res_path+'/confussion_matrix.png'
+      CONFUSSION_MATRIX = self.res_path+'/Results/confussion_matrix.png'
     except:
       raise SystemExit("Unable to find confussion_matrix.png")
 
