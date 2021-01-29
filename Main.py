@@ -131,7 +131,12 @@ class Main(Data_Loader,Filters,Results):
       Generates pdf file 
     '''
     res_path = os.path.join(self.dataset_dir)
-
+    self.results_initialize(res_path)
+    try:
+      os.mkdir(res_path+"/Results") 
+    except:
+      pass
+      
     self.generate_report()
 
   def generate_confussion_matrix(self,ground_truths,predictions):

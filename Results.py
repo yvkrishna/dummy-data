@@ -34,7 +34,7 @@ class Results:
     '''
     self.res_path = ResultsFolderPath
 
-  def get_training_curve_for_tensorflow_model(self,model_history,EPOCHS):
+  def get_learning_curve_for_tensorflow_model(self,model_history,EPOCHS):
     '''
       returns training curve for tensorflow model
       Args:
