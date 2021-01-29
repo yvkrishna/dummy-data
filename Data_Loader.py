@@ -57,8 +57,7 @@ class Data_Loader:
     
 
     try:
-      os.mkdir(final_data_folder)    
-      print("Creating processedData Folder")
+      os.mkdir(final_data_folder) 
     except:
       pass
 

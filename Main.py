@@ -145,7 +145,7 @@ class Main(Data_Loader,Filters,Results):
     res_path = os.path.join(self.dataset_dir ,self.data_dir)
     self.results_initialize(res_path)
 
-    self.get_confussion_matrix(self,ground_truths,predictions)
+    self.get_confussion_matrix(ground_truths,predictions)
 
   def generate_learning_curve_for_tensorflow(self,model_history,EPOCHS):
     ''' 
@@ -156,4 +156,4 @@ class Main(Data_Loader,Filters,Results):
     '''
     res_path = os.path.join(self.dataset_dir ,self.data_dir)
     self.results_initialize(res_path)
-    self.get_learning_curve_for_tensorflow_model(self,model_history,EPOCHS)
+    self.get_learning_curve_for_tensorflow_model(model_history,EPOCHS)
