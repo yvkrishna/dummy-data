@@ -147,14 +147,14 @@ class Results:
 
     try:
       # Confussion Matrix
-      conf_mat = '<font size="14">Confussion Matrix</font>' % HEADDING
+      conf_mat = '<font size="14">Confussion Matrix</font>' 
       Story.append(Paragraph(conf_mat,styles["Heading1"]))
       Story.append(confussion_matrix)
       Story.append(Spacer(1, 12))
     except:
       pass
 
-    conf_mat = '<font size="14">Confussion Matrix</font>' % HEADDING
+    conf_mat = '<font size="14">Confussion Matrix</font>' 
     Story.append(Paragraph(conf_mat,styles["Heading1"]))
     Story.append(confussion_matrix)
     Story.append(Spacer(1, 12))
